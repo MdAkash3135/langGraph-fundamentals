@@ -7,8 +7,8 @@ class AgentState(TypedDict):
     message: str
 
 def greetings_node(state: AgentState) -> AgentState:
-    state["message"] = state.get("message", "") + " Hello from Agent 1!"
-    return {"message": f"Hello! You said: {state['message']}"}
+    state["message"] = state.get("message", "") + " You are doing an greate job by learning langgraph!"
+    return {"message": f"{state['message']}"}
 
 graph = StateGraph(AgentState)
 graph.add_node("greet", greetings_node)
@@ -18,5 +18,5 @@ graph.set_finish_point("greet")
 
 app = graph.compile()
 
-result = app.invoke({"message": "kire vai "})
+result = app.invoke({"message": "Bob"})
 print(result)
