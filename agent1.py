@@ -7,6 +7,7 @@ class AgentState(TypedDict):
     message: str
 
 def greetings_node(state: AgentState) -> AgentState:
+    '''A node that takes a message and appends a greeting to it.'''
     state["message"] = state.get("message", "") + " You are doing an greate job by learning langgraph!"
     return {"message": f"{state['message']}"}
 
